@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categories list</h1>
+
+    {% if categories %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td><a href="{{ path('category_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
+                    <td>{{ category.category }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('category_show', { 'id': category.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('category_edit', { 'id': category.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <button onclick="location='{{ path('category_new') }}'" class="btn btn-success" type="button">Create a new category</button>
+    <button onclick="location='{{ path('_index') }}'" class="btn btn-primary" type="button">Back to the book list</button>
+
+{% endblock %}

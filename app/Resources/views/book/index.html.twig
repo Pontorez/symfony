@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Books list
+        {% if category %}
+            ({{ books.0.category }})
+        {% endif %}
+    </h1>
+
+    {% if books %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+                <tr>
+                    <td><a href="?c={{ book.category.getId() }}">{{ book.category }}</a></td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.year }}</td>
+                    <td>
+                        <button onclick="location='{{ path('_edit', { 'id': book.id }) }}'" class="btn btn-primary" type="button">edit</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No books!</p>
+    {% endif %}
+
+    {% if category %}
+        <button onclick="location='{{ path('_index') }}'" class="btn btn-primary" type="button">Back to the list</button>
+    {% else %}
+        <button onclick="location='{{ path('_new') }}'" class="btn btn-success" type="button">Create a new book</button>
+        <button onclick="location='/category/'" class="btn btn-success" type="button">Manage categories</button>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+.table {
+    margin-bottom: 0;
+}
+
+.list-inline li {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#booksbundle_book label,
+.booksbundle_book label,
+#booksbundle_category label
+{
+    width: 80px;
+}
+
+.ws {
+    height: 10px;
+}
+
+.sevenPx {
+    margin-left: 7px;
+}

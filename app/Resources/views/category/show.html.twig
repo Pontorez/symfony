@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Category</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ category.category }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="location='{{ path('category_edit', { 'id': category.id }) }}'" class="btn btn-success" type="button">Edit category</button>
+    <button onclick="location='{{ path('category_index') }}'" class="btn btn-primary" type="button">Back to the list of categories</button>
+
+{% endblock %}

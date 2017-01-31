@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Book</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ book.category }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ book.year }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ws"></div>
+
+    <ul class="list-inline sevenPx">
+        <li>
+            <button onclick="location='{{ path('_edit', { 'id': book.id }) }}'" class="btn btn-success" type="button">Edit</button>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete it?')">
+            {{ form_end(delete_form) }}
+        </li>
+        <li>
+            <button onclick="location='{{ path('_index') }}'" class="btn btn-primary" type="button">Back to the list</button>
+        </li>
+    </ul>
+{% endblock %}

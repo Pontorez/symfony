@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="{{ asset('css/css.css') }}" rel="stylesheet"/>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Books{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+    <div class="container">
+
+        {% block body %}{% endblock %}
+
+        {% if app.request.get('_route') == '_index' %}
+
+        <footer class="text-center">
+            <hr/>
+            <small>
+                <a href="https://github.com/Pontorez/symfony" target="_blank">Get source code (GitHub)</a>
+            </small>
+        </footer>
+        {% endif %}
+
+    </div>
+    </body>
+</html>
